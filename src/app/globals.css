@@ -1,11 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+:root {
+  --day-duration: 5s;
+  --night-color: #0094bd;
+  --day-color: #00b6bb;
+}
 body {
   margin: 0;
   padding: 0;
-  cursor: none;
+  overflow: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.project-container::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
 }
 @layer utilities {
   .text-balance {
@@ -30,10 +39,10 @@ body {
 }
 
 .hover-this:hover ~ .cursor {
-  transform:translate(-50%, -50%) scale(8);
+  transform: translate(-50%, -50%) scale(8);
 }
 
-@media(max-width: 900px) {
+@media (max-width: 900px) {
   .hover-this {
     width: 100%;
   }
@@ -55,11 +64,11 @@ body {
 }
 
 .hover-this:after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   transform: scaleX(0);
-  height: .4rem;
+  height: 0.4rem;
   bottom: 0;
   left: 0;
   background-color: #786cff;
@@ -73,25 +82,421 @@ body {
   transform-origin: bottom left;
 }
 
-.stars, .twinkling, .clouds {
-	position:absolute;
-	top:0; bottom:0;
-	left:0; right:0;
-	width:100%; height:100%;
+.stars,
+.twinkling,
+.clouds {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .stars {
-	z-index: 0;
-	background: #000 url('https://i.ibb.co/g91MwKZ/stars.png') repeat top center;
+  z-index: 0;
+  background: #000 url("https://i.ibb.co/g91MwKZ/stars.png") repeat top center;
+}
+/*  */
+
+* {
+  box-sizing: border-box;
 }
 
-.twinkling{
-	z-index: 1;
-	background:transparent url('https://i.ibb.co/pnJQm6V/twinkling.png') repeat top center;
-	animation: move-twink-back 200s linear infinite;
+@keyframes sunrise {
+  0% {
+    transform: rotate(0deg);
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: rotate(180deg);
+    transform: scale(0.5);
+  }
+  0%,
+  10%,
+  90%,
+  100% {
+    box-shadow: 0 0 0 25px rgba(#5ad6bd, 1), 0 0 0 40px rgba(#4acead, 1),
+      0 0 0 60px rgba(#4acead, 0.6), 0 0 0 90px rgba(#4acead, 0.3);
+  }
+  25%,
+  75% {
+    box-shadow: 0 0 0 0 rgba(#5ad6bd, 1), 0 0 0 0 rgba(#4acead, 1),
+      0 0 0 0 rgba(#4acead, 0.6), 0 0 0 0 rgba(#4acead, 0.3);
+  }
 }
 
-@keyframes move-twink-back {
-	from {background-position:0 0;}
-	to {background-position:-10000px 5000px;}
+@keyframes moonOrbit {
+  25% {
+    transform: rotate(-60deg);
+  }
+  50% {
+    transform: rotate(-60deg);
+  }
+  75% {
+    transform: rotate(-180deg);
+  }
+  0%,
+  100% {
+    transform: rotate(-180deg);
+  }
 }
+
+@keyframes nightTime {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes orbit {
+  /* 0% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  } */
+}
+
+.time-wrapper {
+  display: block;
+  width: 30%;
+  height: 50%;
+  left: 20%;
+  top: 10%;
+  position: absolute;
+  overflow: hidden;
+  transform: rotate(180deg);
+  animation: orbit var(--day-duration) ease-in-out 1;
+  animation-fill-mode: forwards;
+}
+
+.day {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  bottom: 25%;
+  right: 46%;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.5rem rgba(90, 214, 189, 1),
+    0 0 0 1rem rgba(74, 206, 173, 1), 0 0 0 1.5rem rgba(74, 206, 173, 0.6),
+    0 0 0 2rem rgba(74, 206, 173, 0.3);
+  animation: sunrise var(--day-duration) ease-in-out infinite;
+  background-color: #ef9431;
+}
+.night {
+  animation: nightTime var(--day-duration) ease-in-out infinite;
+}
+.night .star {
+  display: block;
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  bottom: 10%;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.night .star-big {
+  width: 6px;
+  height: 6px;
+}
+.night .star1 {
+  right: 23%;
+  bottom: 25%;
+}
+.night .star2 {
+  right: 35%;
+  bottom: 18%;
+}
+.night .star3 {
+  right: 47%;
+  bottom: 25%;
+}
+.night .star4 {
+  right: 22%;
+  bottom: 20%;
+}
+.night .star5 {
+  right: 18%;
+  bottom: 30%;
+}
+.night .star6 {
+  right: 60%;
+  bottom: 20%;
+}
+.night .star7 {
+  right: 70%;
+  bottom: 23%;
+}
+.night .moon {
+  display: block;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  bottom: 22%;
+  right: 33%;
+  border-radius: 50%;
+  transform: rotate(-60deg);
+  box-shadow: 9px 9px 3px 0 rgba(255, 255, 255, 1);
+  filter: blur(1px);
+  animation: moonOrbit var(--day-duration) ease-in-out infinite;
+}
+.night .moon:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: -9px;
+  left: 9px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.05),
+    0 0 0 15px rgba(255, 255, 255, 0.05), 0 0 0 25px rgba(255, 255, 255, 0.05),
+    0 0 0 35px rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/*  */
+
+#clouds {
+  overflow: hidden;
+  position: absolute;
+  padding: 100px 0;
+  height: 100%;
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Time to finalise the cloud shape*/
+.cloud {
+  width: 5rem;
+  height: 2rem;
+  background: #5bb8cf;
+
+  border-radius: 5rem;
+  -moz-border-radius: 5rem;
+  -webkit-border-radius: 5rem;
+
+  position: relative;
+}
+
+.cloud:before,
+.cloud:after {
+  content: "";
+  position: absolute;
+  background: #5bb8cf;
+  width: 100px;
+  height: 80px;
+  position: absolute;
+  top: -15px;
+  left: 10px;
+
+  border-radius: 100px;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+}
+
+.cloud:after {
+  width: 120px;
+  height: 120px;
+  top: -55px;
+  left: auto;
+  right: 15px;
+}
+
+@keyframes moveclouds {
+  0% {
+    margin-left: 0px;
+  }
+  50% {
+    margin-left: 10px;
+  }
+  100% {
+    margin-left: 0px;
+  }
+}
+
+@-webkit-keyframes moveclouds {
+  0% {
+    margin-left: 0px;
+  }
+  50% {
+    margin-left: 10px;
+  }
+  100% {
+    margin-left: 0px;
+  }
+}
+@-moz-keyframes moveclouds {
+  0% {
+    margin-left: 0px;
+  }
+  50% {
+    margin-left: 10px;
+  }
+  100% {
+    margin-left: 0px;
+  }
+}
+@-o-keyframes moveclouds {
+  0% {
+    margin-left: 0px;
+  }
+  50% {
+    margin-left: 10px;
+  }
+  100% {
+    margin-left: 0px;
+  }
+}
+
+.x3 {
+  left: -18%;
+  top: -25%;
+  opacity: 0.8; /*opacity proportional to the size*/
+
+  -webkit-animation: moveclouds 2s ease-in-out infinite;
+  -moz-animation: moveclouds 2s ease-in-out infinite;
+  -o-animation: moveclouds 2s ease-in-out infinite;
+  animation: moveclouds 2s ease-in-out infinite;
+}
+
+@media (max-width: 900px) {
+  .time-wrapper {
+    height: 20%;
+    width: 40%;
+  }
+  .x3 {
+    top: -35%;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow: scroll;
+  }
+}
+/*  */
+.particleWrapper {
+  overflow: hidden;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+    border-radius: 0;
+  }
+  100% {
+    transform: translateY(-1000px) rotate(720deg);
+    opacity: 0;
+    border-radius: 50%;
+  }
+}
+
+.background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.background li {
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  background: rgba(19, 130, 173, 0.2);
+  animation: animate 4s linear infinite;
+}
+
+.background li:nth-child(0) {
+  left: 41%;
+  width: 138px;
+  height: 138px;
+  bottom: -138px;
+  animation-delay: 1s;
+}
+.background li:nth-child(1) {
+  left: 8%;
+  width: 144px;
+  height: 144px;
+  bottom: -144px;
+  animation-delay: 5s;
+}
+.background li:nth-child(2) {
+  left: 14%;
+  width: 116px;
+  height: 116px;
+  bottom: -116px;
+  animation-delay: 5s;
+}
+.background li:nth-child(3) {
+  left: 34%;
+  width: 192px;
+  height: 192px;
+  bottom: -192px;
+  animation-delay: 3s;
+}
+.background li:nth-child(4) {
+  left: 41%;
+  width: 144px;
+  height: 144px;
+  bottom: -144px;
+  animation-delay: 3s;
+}
+.background li:nth-child(5) {
+  left: 11%;
+  width: 160px;
+  height: 160px;
+  bottom: -160px;
+  animation-delay: 13s;
+}
+.background li:nth-child(6) {
+  left: 58%;
+  width: 155px;
+  height: 155px;
+  bottom: -155px;
+  animation-delay: 11s;
+}
+.background li:nth-child(7) {
+  left: 86%;
+  width: 183px;
+  height: 183px;
+  bottom: -183px;
+  animation-delay: 33s;
+}
+.background li:nth-child(8) {
+  left: 72%;
+  width: 108px;
+  height: 108px;
+  bottom: -108px;
+  animation-delay: 39s;
+}
+.background li:nth-child(9) {
+  left: 65%;
+  width: 172px;
+  height: 172px;
+  bottom: -172px;
+  animation-delay: 8s;
+}
+/*  */

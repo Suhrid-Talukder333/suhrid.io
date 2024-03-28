@@ -20,7 +20,7 @@ export const ThemeSwitcher = () => {
 
   return (
     <button
-      className={`cursor-none w-fit absolute right-5 top-2 p-2 rounded-md hover:scale-110 active:scale-200 duration-200 bg-slate-200 dark:bg-[#212933]`}
+      className={`w-fit relative right-5 p-2 rounded-md hover:scale-110 active:scale-200 duration-200 bg-slate-200 dark:bg-[#212933]`}
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
       {theme === "dark" ? <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">

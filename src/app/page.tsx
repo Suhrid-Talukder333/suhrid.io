@@ -26,8 +26,8 @@ export default function Home() {
     const editCursor = (e: any) => {
       const { clientX: x, clientY: y } = e;
       if (cursor) {
-        cursor.style.left = x + 'px';
-        cursor.style.top = y + 'px';
+        cursor.style.left = x -15+ 'px';
+        cursor.style.top = y -15+ 'px';
       }
     };
 
@@ -36,10 +36,40 @@ export default function Home() {
     window.addEventListener('mousemove', editCursor);
   }, []);
   return (
-    <main className="w-full">
+    <main className="w-full flex justify-center items-center">
+      <div className="w-full block dark:hidden particleWrapper">
+        <ul className="background">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+      <div className="w-full block dark:hidden" id="clouds">
+        <div className="cloud x3"></div>
+      </div>
       <div className="w-full hidden dark:block stars"></div>
       <div className="w-full hidden dark:block twinkling"></div>
-      <div className="w-full h-screen relative z-[1000] flex flex-col justify-center items-center text-center text-3xl lg:text-6xl font-bold text-[#0B6285] dark:text-blue-200">
+      <div className="time-wrapper">
+        <div className="block dark:hidden day"></div>
+        <div className="hidden dark:block night">
+          <div className="moon"></div>
+          <div className="star star1 star-big"></div>
+          <div className="star star2 star-big"></div>
+          <div className="star star3 star-big"></div>
+          <div className="star star4"></div>
+          <div className="star star5"></div>
+          <div className="star star6"></div>
+          <div className="star star7"></div>
+        </div>
+      </div>
+      <div className="p-10 w-full h-screen relative z-[1000] flex flex-col justify-center items-center text-center text-3xl lg:text-6xl font-bold text-[#0B6285] dark:text-blue-200">
         <div className="w-full hollow-text-white dark:hollow-text-black uppercase">
           Hello, I'm <span className="hover-this text-black dark:text-white whitespace-nowrap">Suhrid Talukder</span><br />a relentless dreamer
         </div>
@@ -56,7 +86,7 @@ export default function Home() {
           </svg>
             <span className="ml-2 hover-this">More About Me</span></Link>
         </div>
-        <div className="cursor"></div>
+        <div className="hidden lg:block cursor"></div>
       </div>
     </main>
   );
