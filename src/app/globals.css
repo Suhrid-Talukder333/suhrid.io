@@ -13,7 +13,7 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-.project-container::-webkit-scrollbar { 
+div::-webkit-scrollbar { 
   display: none;  /* Safari and Chrome */
 }
 @layer utilities {

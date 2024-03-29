@@ -29,7 +29,7 @@ export default function Navbar() {
           onClick={() => {
             setShowNavbar(!showNavbar);
           }}
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-800 dark:text-gray-50 rounded-md hover:scale-110 active:scale-200 duration-200 bg-slate-200 dark:bg-[#212933]"
           aria-controls="navbar-default"
           aria-expanded="false"
         >
@@ -54,7 +54,7 @@ export default function Navbar() {
             <li>
               <Link
                 href="/"
-                className={`block py-2 px-3 ${pathname=="/" ? 'text-white': "text-gray-900"}  rounded hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white`}
+                className={`block py-2 px-3 ${pathname=="/" ? 'text-blue-200': "text-gray-900"}  rounded hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white`}
               >
                 Home
               </Link>
@@ -62,7 +62,7 @@ export default function Navbar() {
             <li>
               <Link
                 href="/about"
-                className={`block py-2 px-3 ${pathname=="/about" ? 'text-white': "text-gray-900"}  rounded hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white`}
+                className={`block py-2 px-3 ${pathname=="/about" ? 'text-blue-200': "text-gray-900"}  rounded hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white`}
               >
                 About
               </Link>
@@ -70,7 +70,7 @@ export default function Navbar() {
             <li>
               <Link
                 href="/projects"
-                className={`block py-2 px-3 ${pathname=="/projects" ? 'text-white': "text-gray-900"}  rounded hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white`}
+                className={`block py-2 px-3 ${pathname=="/projects" ? 'text-blue-200': "text-gray-900"}  rounded hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white`}
               >
                 Projects
               </Link>
@@ -78,7 +78,7 @@ export default function Navbar() {
             <li>
               <Link
                 href="/contact"
-                className={`block py-2 px-3 ${pathname=="/contact" ? 'text-white': "text-gray-900"}  rounded hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white`}
+                className={`block py-2 px-3 ${pathname=="/contact" ? 'text-blue-200': "text-gray-900"}  rounded hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white`}
               >
                 Contact
               </Link>

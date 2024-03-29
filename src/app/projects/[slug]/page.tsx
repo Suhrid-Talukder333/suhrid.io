@@ -73,7 +73,7 @@ export default function Project() {
       <div className="w-full lg:overflow-scroll z-[1000] p-10 mt-20 md:mt-0 flex justify-center items-center">
         <div className="w-full md:w-1/2 h-[70vh] lg:h-[85vh] relative z-[1000] md:p-10 flex flex-col md:mt-30 text-3xl lg:text-6xl font-bold text-[#0B6285] dark:text-gray-400">
           <Image
-            className="rounded"
+            className="rounded-xl"
             src={project?.img || ""}
             alt={project?.title || ""}
             width={1000}
