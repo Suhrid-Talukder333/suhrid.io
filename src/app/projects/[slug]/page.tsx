@@ -1,14 +1,14 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { PROJECTS, Project } from "@/constants/project";
+import { PROJECTS, ProjectType } from "@/constants/project";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Project() {
   const path = usePathname();
   const id = path.split("/projects/")[1];
-  const [project, setProject] = useState<Project | null>(null);
+  const [project, setProject] = useState<ProjectType | null>(null);
   console.log(project);
   useEffect(() => {
     const link: any = document.querySelectorAll(".hover-this");
