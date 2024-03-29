@@ -72,12 +72,12 @@ export default function About() {
           <div className="md:pl-10 w-full md:w-2/3">
             <div className="w-full my-5 pb-5 border-b-2">ABOUT</div>
             <div className="w-full mt-5 pb-5 text-base md:text-xl">
-              Hello there! I'm Suhrid, a frontend enthusiast with a keen eye for
+              Hello there! I&apos;m Suhrid, a frontend enthusiast with a keen eye for
               crafting engaging web experiences. With a background in Computer
               Science and Telecommunications Engineering, I find fulfillment in
               contributing to the development of applications that make a
               meaningful impact. Outside of work, I like to cook, play guitar,
-              draw and visit places from time to time. Let's chat, collaborate,
+              draw and visit places from time to time. Let&apos;s chat, collaborate,
               and create something special!.
             </div>
             <Link

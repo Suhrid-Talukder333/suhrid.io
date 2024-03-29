@@ -71,10 +71,10 @@ export default function Home() {
       </div>
       <div className="p-10 w-full h-screen relative z-[1000] flex flex-col justify-center items-center text-center text-3xl lg:text-6xl font-bold text-[#0B6285] dark:text-blue-200">
         <div className="w-full hollow-text-white dark:hollow-text-black uppercase">
-          Hello, I'm <span className="hover-this text-black dark:text-white whitespace-nowrap">Suhrid Talukder</span><br />a relentless dreamer
+          Hello, I&apos;m <span className="hover-this text-black dark:text-white whitespace-nowrap">Suhrid Talukder</span><br />a relentless dreamer
         </div>
         <div className="mt-3 w-full text-xl lg:text-2xl text-black dark:text-white">
-          I'm a full stack developer with a front-end flair <br />& a mobile developer
+          I&apos;m a full stack developer with a front-end flair <br />& a mobile developer
         </div>
         <div className="w-1/2 md:w-1/2 mt-10 flex flex-col h-16 sm:flex-row justify-between items-center font-light text-sm lg:text-2xl text-black dark:text-white ">
           <Link href={"/projects"} className="w-full flex justify-center items-center"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">

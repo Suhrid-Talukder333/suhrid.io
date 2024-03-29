@@ -20,7 +20,7 @@ export default function RootLayout({
 
   useEffect(() => {
     if (isLoading) return;
-  }, [isHome]);
+  }, [isHome, isLoading]);
   return (
     <html lang="en">
       <body className={`${inter.className}`}>
