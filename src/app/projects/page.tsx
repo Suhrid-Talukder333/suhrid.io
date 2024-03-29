@@ -1,10 +1,10 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { PROJECTS, Project } from "@/constants/project";
+import { PROJECTS, ProjectType } from "@/constants/project";
 import Image from "next/image";
 export default function Projects() {
-  const [hoveredItem, setHoveredItem] = useState<Project | null>(null);
+  const [hoveredItem, setHoveredItem] = useState<ProjectType | null>(null);
   useEffect(() => {
     const link: any = document.querySelectorAll(".hover-this");
     const cursor: HTMLDivElement | null = document.querySelector(".cursor");
@@ -63,7 +63,7 @@ export default function Projects() {
             <div>{PROJECTS.length}</div>
           </div>
           <div className="project-container w-full overflow-scroll overflow-x-hidden flex flex-col text-3xl lg:text-6xl font-bold text-[#0B6285] dark:text-blue-200">
-            {PROJECTS.map((item: Project, index: number) => (
+            {PROJECTS.map((item: ProjectType, index: number) => (
               <Link
                 href={`/projects/${item.id}`}
                 onMouseEnter={() => setHoveredItem(item)}

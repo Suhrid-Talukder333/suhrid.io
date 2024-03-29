@@ -1,4 +1,4 @@
-export interface Project {
+export interface ProjectType {
   img: string;
   title: string;
   desc: string;
@@ -8,7 +8,7 @@ export interface Project {
   site: string;
 }
 
-export const PROJECTS: Project[] = [
+export const PROJECTS: ProjectType[] = [
   {
     year: 2023,
     category: "Web Design and App",

@@ -1,10 +1,10 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { PROJECTS, Project } from "@/constants/project";
+import { PROJECTS, ProjectType } from "@/constants/project";
 import Image from "next/image";
 export default function About() {
-  const [hoveredItem, setHoveredItem] = useState<Project | null>(null);
+  const [hoveredItem, setHoveredItem] = useState<ProjectType | null>(null);
   useEffect(() => {
     const link: any = document.querySelectorAll(".hover-this");
     const cursor: HTMLDivElement | null = document.querySelector(".cursor");
